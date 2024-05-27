@@ -8,13 +8,20 @@ use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
-    //
+    // 本棚の表示
     public function index()
     {
         $books = Book::where('user_id', Auth::id())->get();
         return view('books.index', compact('books'));
     }
 
+    // 本の詳細表示
+    public function show(Book $book)
+    {
+        return view('books.show', compact('book'));
+    }
+
+    // 本の新規追加
     public function create()
     {
         return view('books.create');
@@ -45,6 +52,7 @@ class BookController extends Controller
         return redirect()->route('books.index')->with('success', '正常に本が登録されました。');
     }
 
+    // 本の編集
     public function edit(Book $book)
     {
         $this->authorize('update', $book);
@@ -74,6 +82,7 @@ class BookController extends Controller
         return redirect()->route('books.index')->with('success', 'Book updated successfully');
     }
 
+    // 本の削除
     public function destroy(Book $book)
     {
         $this->authorize('delete', $book);
