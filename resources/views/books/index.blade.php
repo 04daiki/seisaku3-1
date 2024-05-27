@@ -14,6 +14,12 @@
                     @if ($book->photo)
                     <img src="{{ asset('storage/photos/' . $book->photo) }}" alt="Book photo" class="img-fluid">
                     @endif
+                    <a href="{{ route('books.edit', $book) }}" class="btn btn-warning mt-2">Edit</a>
+                    <form action="{{ route('books.destroy', $book) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>
