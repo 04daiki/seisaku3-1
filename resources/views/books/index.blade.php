@@ -15,12 +15,12 @@
                     <img src="{{ asset('storage/photos/' . $book->photo) }}" alt="Book photo" class="img-fluid">
                     @endif
                     <a href="{{ route('books.show', $book) }}" class="btn btn-primary">show</a>
-                    <a href="{{ route('books.edit', $book) }}" class="btn btn-warning mt-2">Edit</a>
+                    <!-- <a href="{{ route('books.edit', $book) }}" class="btn btn-warning mt-2">Edit</a>
                     <form action="{{ route('books.destroy', $book) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger mt-2">Delete</button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>

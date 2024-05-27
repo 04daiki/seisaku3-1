@@ -79,7 +79,7 @@ class BookController extends Controller
 
         $book->save();
 
-        return redirect()->route('books.index')->with('success', 'Book updated successfully');
+        return redirect()->route('books.show', $book)->with('success', 'Book updated successfully');
     }
 
     // 本の削除
