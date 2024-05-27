@@ -10,10 +10,10 @@
     <form action="{{ route('books.update', $book) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <!-- 本の名前 -->
+        <!-- 本の名前(編集前の情報を追加) -->
         <div class="form-group">
             <label for="name">Book Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+            <input type="text" class="form-control" id="name" name="name" value="{{ $book->name }}" required>
         </div>
         <!-- 本の写真 -->
         <div class="form-group">
