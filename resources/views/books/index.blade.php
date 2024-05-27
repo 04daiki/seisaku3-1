@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Your Books</h1>
+    <h1>本棚</h1>
     <a href="{{ route('books.create') }}" class="btn btn-primary">Add New Book</a>
     <div class="row mt-4">
         @foreach ($books as $book)

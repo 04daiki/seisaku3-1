@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="container">
-    <h1>Add New Book</h1>
+    <h1>本の追加</h1>
+    <!-- Back to Book List Button -->
+    <a href="{{ route('books.index') }}" class="btn btn-secondary mb-3">Back to Book List</a>
+
     <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <!-- 本の名前 -->
@@ -20,9 +23,14 @@
             <label for="genre">Book Genre</label>
             <select class="form-select" id="genre" name="genre" aria-label="Default select example">
                 <option value="" selected>本の種類を選択してください</option>
-                <option value="文芸">文芸</option>
-                <option value="エッセイ">エッセイ</option>
-                <option value="古文">古文</option>
+                <option value="#文芸">文芸</option>
+                <option value="#雑誌">雑誌</option>
+                <option value="#コミック">コミック</option>
+                <option value="#文庫">文庫</option>
+                <option value="#絵本・児童書">絵本・児童書</option>
+                <option value="#実用書">実用書</option>
+                <option value="#学習参考書">学習参考書</option>
+                <option value="#専門書">専門書</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Add Book</button>
