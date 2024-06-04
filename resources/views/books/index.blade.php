@@ -9,7 +9,7 @@
             <form action="{{ route('books.search') }}" method="GET" class="mb-4">
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" name="title" placeholder="Search by title"
+                        <input type="text" class="form-control" name="title" placeholder="タイトルで検索"
                             value="{{ request('title') }}">
                     </div>
                     <div class="col">
@@ -18,7 +18,7 @@
                 </div>
             </form>
             <!-- サイトバー: ジャンル検索フォーム -->
-            <h3>Search by Genre</h3>
+            <h3>ジャンルで検索</h3>
             <form action="{{ route('books.searchByGenre') }}" method="GET">
                 <div class="form-group">
                     <label for="genre">Genre</label>
@@ -37,15 +37,15 @@
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
-
-        <div class="col-md-9">
+        <div class="col-md-1 d-none d-md-block" style="border-left: 1px solid #ccc;"></div>
+        <div class="col-md-8">
             <h1>本棚</h1>
             <!-- 本の新規追加ボタン -->
             <a href="{{ route('books.create') }}" class="btn btn-primary">Add New Book</a>
 
             <div class="row mt-4">
                 @foreach ($books as $book)
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{ $book->name }}</h5>

@@ -8,7 +8,7 @@
             <form action="{{ route('books.search') }}" method="GET" class="mb-4">
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" name="title" placeholder="Search by title"
+                        <input type="text" class="form-control" name="title" placeholder="タイトルで検索"
                             value="{{ request('title') }}">
                     </div>
                     <div class="col">
@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label for="genre">Genre</label>
                     <select class="form-control" id="genre" name="genre">
-                        <option value="">Select genre</option>
+                        <option value="">ジャンルで検索</option>
                         <option value="#文芸" {{ request('genre') == '文芸' ? 'selected' : '' }}>文芸</option>
                         <option value="#雑誌" {{ request('genre') == '雑誌' ? 'selected' : '' }}>雑誌</option>
                         <option value="#コミック" {{ request('genre') == 'コミック' ? 'selected' : '' }}>コミック</option>
