@@ -1,4 +1,3 @@
-<!-- 0J01021重山大輝 -->
 @extends('layouts.app')
 
 @section('content')
@@ -40,9 +39,7 @@
 
         <div class="col-md-9">
             <h1>本棚</h1>
-            <!-- 本の新規追加ボタン -->
-            <a href="{{ route('books.create') }}" class="btn btn-primary">Add New Book</a>
-
+            <a href="{{ route('books.index') }}" class="btn btn-primary">一覧へ戻る</a>
             <div class="row mt-4">
                 @foreach ($books as $book)
                 <div class="col-md-4">

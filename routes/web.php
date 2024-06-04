@@ -26,3 +26,7 @@ Route::get('/books/{book}/edit', [BookController::class, 'edit'])->name('books.e
 Route::put('/books/{book}', [BookController::class, 'update'])->name('books.update');
 // 本の削除
 Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
+// 本のタイトルで検索
+Route::get('/books/search', [BookController::class, 'search'])->name('books.search');
+// 本のジャンルで検索
+Route::get('/books/search-by-genre', [BookController::class, 'searchByGenre'])->name('books.searchByGenre');

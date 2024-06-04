@@ -90,4 +90,30 @@ class BookController extends Controller
 
         return redirect()->route('books.index')->with('success', 'Book deleted successfully');
     }
+
+    // 本のタイトルで検索
+    public function search(Request $request)
+    {
+        $query = Book::query();
+
+        if ($request->filled('title')) {
+            $query->where('name', 'like', '%' . $request->input('title') . '%');
+        }
+
+        $query->where('user_id', Auth::id());
+
+        $books = $query->get();
+
+        return view('books.search_results', compact('books'));
+    }
+    
+    // 本のジャンルで検索
+    public function searchByGenre(Request $request)
+    {
+        $books = Book::where('user_id', Auth::id())
+            ->where('genre', $request->genre)
+            ->get();
+
+        return view('books.search_results', compact('books'));
+    }
 }
