@@ -35,7 +35,7 @@
                 <option value="#専門書">専門書</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Update Book</button>
+        <button type="submit" class="btn btn-primary">更新</button>
     </form>
 </div>
 @endsection

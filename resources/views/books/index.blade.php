@@ -5,7 +5,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <!-- タイトル検索フォーム -->
+            <h3>検索</h3>
+            <!-- サイトバー: タイトル検索フォーム -->
             <form action="{{ route('books.search') }}" method="GET" class="mb-4">
                 <div class="form-row">
                     <div class="col">
@@ -13,17 +14,16 @@
                             value="{{ request('title') }}">
                     </div>
                     <div class="col">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-primary">検索</button>
                     </div>
                 </div>
             </form>
             <!-- サイトバー: ジャンル検索フォーム -->
-            <h3>ジャンルで検索</h3>
             <form action="{{ route('books.searchByGenre') }}" method="GET">
                 <div class="form-group">
-                    <label for="genre">Genre</label>
+                    <label for="genre">ジャンル</label>
                     <select class="form-control" id="genre" name="genre">
-                        <option value="">Select genre</option>
+                        <option value="">ジャンルで検索</option>
                         <option value="#文芸" {{ request('genre') == '文芸' ? 'selected' : '' }}>文芸</option>
                         <option value="#雑誌" {{ request('genre') == '雑誌' ? 'selected' : '' }}>雑誌</option>
                         <option value="#コミック" {{ request('genre') == 'コミック' ? 'selected' : '' }}>コミック</option>
@@ -34,14 +34,14 @@
                         <option value="#専門書" {{ request('genre') == '専門書' ? 'selected' : '' }}>専門書</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary">検索</button>
             </form>
         </div>
         <div class="col-md-1 d-none d-md-block" style="border-left: 1px solid #ccc;"></div>
         <div class="col-md-8">
             <h1>本棚</h1>
             <!-- 本の新規追加ボタン -->
-            <a href="{{ route('books.create') }}" class="btn btn-primary">Add New Book</a>
+            <a href="{{ route('books.create') }}" class="btn btn-primary">新規追加</a>
 
             <div class="row mt-4">
                 @foreach ($books as $book)
@@ -53,7 +53,7 @@
                             @if ($book->photo)
                             <img src="{{ asset('storage/' . $book->photo) }}" alt="Book photo" class="img-fluid">
                             @endif
-                            <a href="{{ route('books.show', $book) }}" class="btn btn-primary">Show</a>
+                            <a href="{{ route('books.show', $book) }}" class="btn btn-primary">詳細</a>
                         </div>
                     </div>
                 </div>
