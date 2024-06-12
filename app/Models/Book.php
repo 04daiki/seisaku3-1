@@ -16,7 +16,7 @@ class Book extends Model
         'user_id',
     ];
 
-    // Userモデルとのリレーションシップ
+    // Userモデルとのリレーションシップ（一人のユーザーに複数の本）
     public function user()
     {
         return $this->belongsTo(User::class);

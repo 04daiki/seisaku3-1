@@ -3,17 +3,19 @@
 @section('content')
 <div class="container">
     <h1>本の追加</h1>
-    <!-- Back to Book List Button -->
-    <a href="{{ route('books.index') }}" class="btn btn-secondary mb-3">Back to Book List</a>
-
+    <!-- 一覧へ戻るボタン -->
+    <a href="{{ route('books.index') }}" class="btn btn-secondary mb-3">一覧へ戻る</a>
+    <!-- 書籍の追加フォーム -->
     <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
+        <!-- CSRFトークンを生成するためのBladeディレクティブ -->
         @csrf
         <!-- 本の名前 -->
         <div class="form-group">
             <label for="name">Book Name</label>
-            <input type="text" class="form-control" id="name" name="name" required>
+            <input type="text" class="form-control" id="name" name="name" maxlength="40" required>
         </div>
         <!-- 本の写真 -->
+        <!-- 写真の登録はできるが画像表示は未完成です -->
         <div class="form-group">
             <label for="photo">Book Photo</label>
             <input type="file" class="form-control" id="photo" name="photo">
@@ -33,6 +35,7 @@
                 <option value="#専門書">専門書</option>
             </select>
         </div>
+        <!-- 本の情報を登録するためのボタン -->
         <button type="submit" class="btn btn-primary">Add Book</button>
     </form>
 </div>

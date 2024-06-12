@@ -29,8 +29,11 @@ class LoginController extends Controller
      */
     // protected $redirectTo = '/home';
     // ログイン後本の一覧ページ(index.blade.phpにリダイレクトするように変更)
-    protected $redirectTo = '/books';
-
+    // protected $redirectTo = '/books';
+    public function redirectTo()
+    {
+        return '/books';
+    }
     /**
      * Create a new controller instance.
      *

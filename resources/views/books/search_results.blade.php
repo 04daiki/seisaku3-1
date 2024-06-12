@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
+<!-- 検索結果画面 -->
 @section('content')
+<!-- コメントのBootstrapのクラスにや同じ内容についてはindex.blade.php参照 -->
 <div class="container">
     <div class="row">
         <div class="col-md-3">
@@ -36,20 +37,29 @@
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
         </div>
-
-        <div class="col-md-9">
+        <div class="col-md-1 d-none d-md-block" style="border-left: 1px solid #ccc;"></div>
+        <div class="col-md-8">
             <h1>本棚</h1>
-            <a href="{{ route('books.index') }}" class="btn btn-primary">一覧へ戻る</a>
+            <!-- 一覧へ戻るボタン -->
+            <a href="{{ route('books.index') }}" class="btn btn-secondary">一覧へ戻る</a>
             <div class="row mt-4">
+                <!-- 本の一覧をループで表示する -->
+                <!-- コントローラーから渡されたcompact('books')=下記の$booksを使用しレコード一つずつを$bookに入れていく -->
                 @foreach ($books as $book)
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $book->name }}</h5>
+                            <!-- 表示内容 -->
+                            <!-- タイトル  40文字以上は...になり詳細ページで全部表示する -->
+                            <h5 class="card-title">{{ mb_strimwidth($book->name, 0, 40, '...') }}</h5>
+                            <!-- ジャンルの表示 -->
                             <p class="card-text">{{ $book->genre }}</p>
+                            <!-- 画像を登録していれば画像も表示 -->
+                            <!-- 画像表示は未完成です -->
                             @if ($book->photo)
                             <img src="{{ asset('storage/' . $book->photo) }}" alt="Book photo" class="img-fluid">
                             @endif
+                            <!-- 特定の本の詳細画面を表示するためのボタン -->
                             <a href="{{ route('books.show', $book) }}" class="btn btn-primary">詳細</a>
                         </div>
                     </div>

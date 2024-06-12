@@ -36,6 +36,15 @@ class BookPolicy
      * Determine whether the user can update the model.
      */
     // 本の更新権限の確認
+    public function show(User $user, Book $book): bool
+    {
+        return $user->id === $book->user_id; // ユーザーが本の所有者である場合に true を返す
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     */
+    // 本の更新権限の確認
     public function update(User $user, Book $book): bool
     {
         return $user->id === $book->user_id; // ユーザーが本の所有者である場合に true を返す
@@ -67,5 +76,5 @@ class BookPolicy
         //
     }
 
-    // ---------------------------ここから追記---------------------------
+    
 }

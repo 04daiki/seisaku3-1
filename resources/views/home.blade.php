@@ -17,7 +17,7 @@
                     {{ __('You are logged in!') }}
                 </div>
                 <div class="mt-4">
-                    <a href="{{ route('books.index') }}" class="btn btn-primary">View Books</a>
+                    <a href="{{ route('books.index') }}" class="btn btn-primary">本を見る</a>
                 </div>
             </div>
         </div>
