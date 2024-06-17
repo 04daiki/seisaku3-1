@@ -28,7 +28,12 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // ログイン後本の一覧ページ(index.blade.phpにリダイレクトするように変更)
+    // protected $redirectTo = '/home';
+    public function redirectTo()
+    {
+        return '/books';
+    }
 
     /**
      * Create a new controller instance.

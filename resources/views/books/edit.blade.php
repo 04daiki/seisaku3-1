@@ -15,18 +15,18 @@
         @method('PUT')
         <!-- 本の名前(編集前の情報を初期値として与える) -->
         <div class="form-group">
-            <label for="name">Book Name</label>
+            <label for="name">本の名前</label>
             <input type="text" class="form-control" id="name" name="name" value="{{ $book->name }}" required>
         </div>
         <!-- 本の写真 -->
         <!-- 写真の登録はできるが画像表示は未完成です -->
         <div class="form-group">
-            <label for="photo">Book Photo</label>
+            <label for="photo">本の写真</label>
             <input type="file" class="form-control" id="photo" name="photo">
         </div>
         <!-- 本の種類 -->
         <div class="form-group">
-            <label for="genre">Book Genre</label>
+            <label for="genre">本のジャンル</label>
             <select class="form-select" id="genre" name="genre" aria-label="Default select example">
                 <option value="" selected>本の種類を選択してください</option>
                 <option value="#文芸">文芸</option>
